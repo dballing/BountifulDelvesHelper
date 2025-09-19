@@ -170,7 +170,7 @@ function showUI()
                 91175,
                 91176,
                 91177,
-		91178
+                91178
             }
             for _, weeklyQuestID in pairs(weeklyQuestIDs) do
                 if (C_QuestLog.IsQuestFlaggedCompleted(weeklyQuestID)) then

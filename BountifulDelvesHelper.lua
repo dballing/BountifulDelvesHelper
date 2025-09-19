@@ -79,17 +79,17 @@ worldQuestsIDs = {
 }
 
 delveTiers = {
-    { ["bountifulLootIlvl"] = 655, ["recommendedIlvl"] = 626, ["vaultIlvl"] = 655 },
-    { ["bountifulLootIlvl"] = 658, ["recommendedIlvl"] = 629, ["vaultIlvl"] = 668 },
-    { ["bountifulLootIlvl"] = 662, ["recommendedIlvl"] = 632, ["vaultIlvl"] = 671 },
-    { ["bountifulLootIlvl"] = 665, ["recommendedIlvl"] = 636, ["vaultIlvl"] = 681 },
-    { ["bountifulLootIlvl"] = 668, ["recommendedIlvl"] = 645, ["vaultIlvl"] = 688 },
-    { ["bountifulLootIlvl"] = 671, ["recommendedIlvl"] = 652, ["vaultIlvl"] = 691 },
-    { ["bountifulLootIlvl"] = 681, ["recommendedIlvl"] = 668, ["vaultIlvl"] = 691 },
-    { ["bountifulLootIlvl"] = 684, ["recommendedIlvl"] = 678, ["vaultIlvl"] = 694 },
-    { ["bountifulLootIlvl"] = 684, ["recommendedIlvl"] = 684, ["vaultIlvl"] = 694 },
-    { ["bountifulLootIlvl"] = 684, ["recommendedIlvl"] = 691, ["vaultIlvl"] = 694 },
-    { ["bountifulLootIlvl"] = 684, ["recommendedIlvl"] = 697, ["vaultIlvl"] = 694 }
+     { ["bountifulLootIlvl"] = 655, ["recommendedIlvl"] = 626, ["vaultIlvl"] = 668, ["delversIlvl"] = "" },
+     { ["bountifulLootIlvl"] = 658, ["recommendedIlvl"] = 629, ["vaultIlvl"] = 671, ["delversIlvl"] = "" },
+     { ["bountifulLootIlvl"] = 662, ["recommendedIlvl"] = 632, ["vaultIlvl"] = 675, ["delversIlvl"] = "" },
+     { ["bountifulLootIlvl"] = 665, ["recommendedIlvl"] = 636, ["vaultIlvl"] = 678, ["delversIlvl"] = 671 },
+     { ["bountifulLootIlvl"] = 668, ["recommendedIlvl"] = 645, ["vaultIlvl"] = 681, ["delversIlvl"] = 678 },
+     { ["bountifulLootIlvl"] = 671, ["recommendedIlvl"] = 652, ["vaultIlvl"] = 688, ["delversIlvl"] = 684 },
+     { ["bountifulLootIlvl"] = 681, ["recommendedIlvl"] = 668, ["vaultIlvl"] = 691, ["delversIlvl"] = 691 },
+     { ["bountifulLootIlvl"] = 684, ["recommendedIlvl"] = 678, ["vaultIlvl"] = 694, ["delversIlvl"] = 694 },
+     { ["bountifulLootIlvl"] = 684, ["recommendedIlvl"] = 684, ["vaultIlvl"] = 694, ["delversIlvl"] = 694 },
+     { ["bountifulLootIlvl"] = 684, ["recommendedIlvl"] = 691, ["vaultIlvl"] = 694, ["delversIlvl"] = 694 },
+     { ["bountifulLootIlvl"] = 684, ["recommendedIlvl"] = 697, ["vaultIlvl"] = 694, ["delversIlvl"] = 694 }
 }
 
 AceGUI = LibStub("AceGUI-3.0")
@@ -570,6 +570,23 @@ function showUI()
         end
 
         guiCreateNewline(container)
+
+        local label = AceGUI:Create("Label")
+        label:SetText("Delver's Bounty")
+        label:SetFont(GameFontHighlightMedium:GetFont())
+        label:SetWidth(160)
+        container:AddChild(label)
+
+        for _, tierDetails in pairs(delveTiers) do
+            local label = AceGUI:Create("Label")
+            label:SetText(tierDetails["delversIlvl"])
+            label:SetFont(GameFontHighlightMedium:GetFont())
+            label:SetWidth(40)
+            container:AddChild(label)
+        end
+
+        guiCreateNewline(container)
+
     end
 
     local function SelectGroup(container, event, group)

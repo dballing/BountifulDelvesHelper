@@ -1,8 +1,8 @@
-## Interface: 110107
+## Interface: 120000
 ## Title: Bountiful Delves Helper
 ## Notes: Bountiful Delves Helper
 ## Author: Menelitos
-## Version: 1.2.6
+## Version: 1.2.7
 ## SavedVariablesPerCharacter: BountifulDelvesHelperDB, BountifulDelvesHelperIconDB
 
 ## X-License: GPL
